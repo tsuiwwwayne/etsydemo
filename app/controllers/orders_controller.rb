@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
 
     begin
       charge = Stripe::Charge.create(
-        :amount => (@listing.price = 100).floor,
+        :amount => (@listing.price * 100).floor,
         :currency => "usd",
         :card => token
         )
